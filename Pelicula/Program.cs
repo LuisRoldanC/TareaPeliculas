@@ -6,7 +6,17 @@ namespace Pelicula
 
     public class Pelicula
     {
+    
         //Campos
+        public string titulo;
+        public Int16 año;
+        public string pais;
+        public string director;
+
+    public Pelicula (string titulo, Int16 año){
+        this.titulo = titulo;
+        this.año = año;
+}
         private List<Actor> actores = new List<Actor>();
 
         //Constructores
@@ -15,7 +25,7 @@ namespace Pelicula
      
         public void Imprime()
         {
-     //       Console.WriteLine($"{titulo} ({año})");
+     Console.WriteLine($"{titulo} ({año})");
 
         }
 
@@ -32,7 +42,7 @@ namespace Pelicula
         //Métodos 
         public void Imprime()
         {
-            Console.WriteLine($"{Nombre} ({Año})");
+          //  Console.WriteLine($"{Nombre} ({Año})");
         }
     }
 
@@ -41,11 +51,13 @@ namespace Pelicula
 
     class Program
     {
-
-
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello");
+        Pelicula p1 = new Pelicula("Titanic", 1997);
+        p1.Imprime();
+
+        Pelicula p2 = new Pelicula("Pinocho", 2022);
+        p2.Imprime();
         }
     }
 }
