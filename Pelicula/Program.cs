@@ -24,11 +24,6 @@ namespace Pelicula
         this.director = director;
 }
 */
-        public void Imprime()
-        {
-        Console.WriteLine($"{titulo} ({año})");
-        }
-
         public void SetTitulo(string titulo)
         {
             this.titulo = titulo;
@@ -50,6 +45,17 @@ namespace Pelicula
             return año;
         }
         
+
+        public Pelicula(string t, Int16 a){
+            titulo = t;
+            año = a;
+        }
+        public Pelicula(){
+        }
+            public void Imprime()
+        {
+        Console.WriteLine($"{titulo} ({año})");
+        }
     }
 
 
