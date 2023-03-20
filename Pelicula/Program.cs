@@ -7,15 +7,29 @@ namespace Pelicula
     public class Pelicula
     {
     //Campos
-        private string titulo;
-        private Int16 año;
-        private string pais;
-        private string director;
+        private string titulo { get; set; }
+        private int año { get; set; }
+       // private string pais;
+      //  private string director;
 
-      //  private List<Actor> actores = new List<Actor>();
+     private List<Actor> actores = new List<Actor>();
+
         //Constructores
-     
-      //Métodos
+        public Pelicula(string titulo, int año){
+        this.titulo = titulo;
+        this.año = año;
+}
+         //Métodos
+         public void AgregarActor(Actor actor){
+            actores.Add(actor);
+            }
+        public void ImprimeActores(){
+            foreach (Actor a in actores)
+            {
+                Console.WriteLine(a);
+            }
+        }
+
   /*  public Pelicula (string titulo, Int16 año, string pais, string director){
         this.titulo = titulo;
         this.año = año;
@@ -23,7 +37,7 @@ namespace Pelicula
         this.director = director;
 }*/
 
-        public void SetTitulo(string titulo)
+       /* public void SetTitulo(string titulo)
         {
             this.titulo = titulo;
         }
@@ -57,23 +71,33 @@ namespace Pelicula
         {
         Console.WriteLine($"{titulo} ({año})");
         }
-    }
+    }*/
 
 
 
     public class Actor
     {
+        //Campos
+        private string nombre { get; set; }
+        private Int16 año { get; set; }
         //Propiedades
 
         //Constructores
-
-
+        public Actor(string nombre, Int16 año){
+        this.nombre = nombre;
+        this.año = año;
+        }
+        public override string ToString()
+        {
+            return $"{nombre} ({año})";
+        }
         //Métodos 
         public void Imprime()
         {
-          //  Console.WriteLine($"{Nombre} ({Año})");
+          // Console.WriteLine($"{Nombre} ({Año})");
         }
     }
+    
 
     // Puedes probar tu código en Main() pero lo importante
     // es que pase las pruebas
@@ -82,7 +106,12 @@ namespace Pelicula
     {
         static void Main(string[] args)
         {
-       List<Pelicula> peliculas = new List<Pelicula>();
+        Pelicula p1 = new Pelicula("La La Land", 2016);
+        p1.AgregarActor(new Actor("Ryan Gosling", 1980));
+        p1.AgregarActor(new Actor("Emma Stone", 1988));
+
+        p1.ImprimeActores();
+     /*  List<Pelicula> peliculas = new List<Pelicula>();
 
         peliculas.Add(new Pelicula () {Titulo = "Titanic", Año = 1997});
         peliculas.Add(new Pelicula () {Titulo = "Pinocho", Año = 2022});
@@ -93,7 +122,7 @@ namespace Pelicula
         foreach (Pelicula p in peliculas)
         {
             Console.WriteLine("{0} ({1})", p.Titulo, p.Año);
-        }
+        }*/
 
         /*
         Pelicula p1 = new Pelicula();
@@ -107,5 +136,6 @@ namespace Pelicula
         Console.WriteLine("{0}({1})", p2.GetTitulo(), p2.GetAño());
        */
         }
+    }
     }
 }
